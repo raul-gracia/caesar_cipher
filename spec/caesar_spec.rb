@@ -15,10 +15,25 @@ describe Caesar do
     end
 
     context "should cipher" do
-        it "without a shift value" do
-            caesar = Caesar.new 
-            output = caesar.cipher "w"
-            output.should eq("a")
+        context "without a shift value" do
+            it "one downcase letter" do
+                caesar = Caesar.new 
+                output = caesar.cipher "n"
+                output.should eq("r")
+                output = caesar.cipher "z"
+                output.should eq("d")
+                output = caesar.cipher "w"
+                output.should eq("a")
+                output = caesar.cipher "k"
+                output.should eq("o")
+
+
+            end
+            it "a doncase string" do
+                caesar = Caesar.new
+                output = caesar.cipher "my name is raul"
+                output.should eq("qc reqi mw ueyp")
+            end
         end
     end
 end
