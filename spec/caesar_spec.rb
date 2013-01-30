@@ -18,6 +18,8 @@ describe Caesar do
         context "without a shift value" do
             it "one downcase letter" do
                 caesar = Caesar.new 
+                output = caesar.cipher "a"
+                output.should eq("e")
                 output = caesar.cipher "n"
                 output.should eq("r")
                 output = caesar.cipher "z"
@@ -26,14 +28,24 @@ describe Caesar do
                 output.should eq("a")
                 output = caesar.cipher "k"
                 output.should eq("o")
-
-
             end
             it "a doncase string" do
                 caesar = Caesar.new
                 output = caesar.cipher "my name is raul"
-                output.should eq("qc reqi mw ueyp")
+                output.should eq("qc reqi mw veyp")
+                output = caesar.cipher "this is a test"
+                output.should eq("xlmw mw e xiwx")
+                output = caesar.cipher "caesar cipher"
+                output.should eq("geiwev gmtliv")
             end
+
+            it "a downcase string with non alphabet caracters" do
+                caesar = Caesar.new
+                output = caesar.cipher "my_name.is/raul"
+                output.should eq("qc_reqi.mw/veyp")                
+            end
+
+
         end
     end
 end
