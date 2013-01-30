@@ -1,33 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-
     <title>Caesar Cipher by maliciousmind</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Caesar Cipher</h1>
+        <p class="header">A simple Caesar Cipher ruby implementation</p>
 
-    <header>
-      <div class="container">
-        <h1>Caesar Cipher</h1>
-        <h2>A simple Caesar Cipher ruby implementation</h2>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/maliciousmind/caesar_cipher/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/maliciousmind/caesar_cipher/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/maliciousmind/caesar_cipher">View On GitHub</a></li>
+        </ul>
 
-        <section id="downloads">
-          <a href="https://github.com/maliciousmind/caesar_cipher/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/maliciousmind/caesar_cipher/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/maliciousmind/caesar_cipher" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/maliciousmind">maliciousmind</a></p>
 
-    <div class="container">
-      <section id="main_content">
+
+      </header>
+      <section>
         <h3>Caesar Cipher</h3>
 
 <p>Is a simple Caesar Cipher ruby implementation</p>
@@ -36,20 +38,32 @@
 
 <h5>Command Line</h5>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<div class="highlight"><pre><span class="nv">$ </span>caesar_cipher    <span class="s2">"hello"</span>   <span class="c"># returns "lipps"</span>
+<span class="nv">$ </span>caesar_cipher -d <span class="s2">"asvph"</span>   <span class="c"># returns "world" </span>
+<span class="nv">$ </span>caesar_cipher    <span class="s2">"hello"</span> 8 <span class="c"># returns "pmttw"</span>
+<span class="nv">$ </span>caesar_cipher    <span class="s2">"ewztl"</span> 8 <span class="c"># returns "world"</span>
+</pre></div>
 
 <h5>Ruby Script</h5>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-      </section>
-    </div>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'caesar'</span>
 
-    
+<span class="c1"># with default shift of 4</span>
+<span class="n">caesar</span> <span class="o">=</span> <span class="no">Caesar</span><span class="o">.</span><span class="n">new</span>
+<span class="n">caesar</span><span class="o">.</span><span class="n">cipher</span>   <span class="s2">"hello"</span> <span class="c1"># returns "lipps"</span>
+<span class="n">caesar</span><span class="o">.</span><span class="n">decipher</span> <span class="s2">"asvph"</span> <span class="c1"># returns "world"</span>
+
+<span class="c1"># with different shift</span>
+<span class="n">caesar</span> <span class="o">=</span> <span class="no">Caesar</span><span class="o">.</span><span class="n">new</span> <span class="mi">8</span>
+<span class="n">caesar</span><span class="o">.</span><span class="n">cipher</span>   <span class="s2">"hello"</span> <span class="c1"># returns "pmttw"</span>
+<span class="n">caesar</span><span class="o">.</span><span class="n">decipher</span> <span class="s2">"ewztl"</span> <span class="c1"># returns "world"</span>
+</pre></div>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
