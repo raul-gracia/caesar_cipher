@@ -8,36 +8,29 @@ class App
   include Methadone::Main
   include Methadone::CLILogging
 
-  main do # Add args you want: |like,so|
-    # your program code here
-    # You can access CLI options via
-    # the options Hash
+  main do |text|
+    caesar = CaesarCipher::Caesar.new options[:shift]
+    output = ""
+    if options[:decipher]
+      output = caesar.decipher text
+    else
+      output = caesar.cipher text
+    end
+    if options[:output]
+      File.open(options[:output], 'w') {|f| f.write(output) }
+    else
+      puts output
+    end
   end
 
-  # supplemental methods here
-
-  # Declare command-line interface here
-
-  # description "one line description of your app"
-  #
-  # Accept flags via:
-  # on("--flag VAL","Some flag")
-  # options[flag] will contain VAL
-  #
-  # Specify switches via:
-  # on("--[no-]switch","Some switch")
-  #
-  # Or, just call OptionParser methods on opts
-  #
-  # Require an argument
-  # arg :some_arg 
-  #
-  # # Make an argument optional
-  # arg :optional_arg, :optional
-
   version CaesarCipher::VERSION
-
-  use_log_level_option
+  description "Is a simple Caesar Cipher ruby implementation"
+  arg :text
+  
+  on("-d","--decipher","Decipher")
+  options[:shift] = 4
+  on("-s SHIFT","--shift","Shift",/\d+$/)
+  on("-o FILE", "--output", "Output File")
 
   go!
 end
