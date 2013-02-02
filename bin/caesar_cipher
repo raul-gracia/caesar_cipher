@@ -9,7 +9,7 @@ class App
   include Methadone::CLILogging
 
   main do |text|
-    caesar = CaesarCipher::Caesar.new options[:shift]
+    caesar = CaesarCipher::Caesar.new options[:shift].to_i
     output = ""
     if options[:decipher]
       output = caesar.decipher text
