@@ -1,29 +1,46 @@
-# CaesarCipher
+![Caesar Cipher](http://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Caesar3.svg/800px-Caesar3.svg.png)
+### Installation
+```bash
+$ gem install caesar_cipher
+```
+### Usage
+##### Ruby Script
 
-TODO: Write a gem description
+```ruby
+require 'caesar_cipher'
 
-## Installation
+# with default shift of 4
+caesar = CaesarCipher::Caesar.new
+caesar.cipher   "hello" # returns "lipps"
+caesar.decipher "asvph" # returns "world"
 
-Add this line to your application's Gemfile:
+# with different shift
+caesar = CaesarCipher::Caesar.new 8
+caesar.cipher   "hello" # returns "pmttw"
+caesar.decipher "ewztl" # returns "world"
+```
 
-    gem 'caesar_cipher'
+##### Command Line
 
-And then execute:
+```bash
+$ caesar_cipher --help
+Usage: caesar_cipher [options] text
 
-    $ bundle
+Is a simple Caesar Cipher ruby implementation
 
-Or install it yourself as:
+v0.0.1
 
-    $ gem install caesar_cipher
+Options:
+    -h, --help                       Show command line help
+        --version                    Show help/version info
+    -d, --decipher                   Decipher
+    -s, --shift SHIFT                Shift
+                                     (default: 4)
+    -o, --output FILE                Output File
 
-## Usage
 
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+$ caesar_cipher "hello"         # returns "lipps"
+$ caesar_cipher -d "asvph"      # returns "world" 
+$ caesar_cipher -s 8 "hello"    # returns "pmttw"
+$ caesar_cipher -s 8 -d "ewztl" # returns "world"
+```

@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Is a simple Caesar Cipher ruby implementation}
   gem.summary       = %q{Simple Caesar Cipher}
   gem.homepage      = "http://maliciousmind.github.com/caesar_cipher/"
-  gem.license       = "MIT"
+  gem.license       = "Apache"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
