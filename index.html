@@ -44,20 +44,20 @@
 <div class="highlight"><pre><span class="nv">$ </span>caesar_cipher    <span class="s2">"hello"</span>   <span class="c"># returns "lipps"</span>
 <span class="nv">$ </span>caesar_cipher -d <span class="s2">"asvph"</span>   <span class="c"># returns "world" </span>
 <span class="nv">$ </span>caesar_cipher    <span class="s2">"hello"</span> 8 <span class="c"># returns "pmttw"</span>
-<span class="nv">$ </span>caesar_cipher    <span class="s2">"ewztl"</span> 8 <span class="c"># returns "world"</span>
+<span class="nv">$ </span>caesar_cipher -d <span class="s2">"ewztl"</span> 8 <span class="c"># returns "world"</span>
 </pre></div>
 
 <h5>Ruby Script</h5>
 
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'caesar'</span>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">'caesar_cipher'</span>
 
 <span class="c1"># with default shift of 4</span>
-<span class="n">caesar</span> <span class="o">=</span> <span class="no">Caesar</span><span class="o">.</span><span class="n">new</span>
+<span class="n">caesar</span> <span class="o">=</span> <span class="no">CaesarCipher</span><span class="o">::</span><span class="no">Caesar</span><span class="o">.</span><span class="n">new</span>
 <span class="n">caesar</span><span class="o">.</span><span class="n">cipher</span>   <span class="s2">"hello"</span> <span class="c1"># returns "lipps"</span>
 <span class="n">caesar</span><span class="o">.</span><span class="n">decipher</span> <span class="s2">"asvph"</span> <span class="c1"># returns "world"</span>
 
 <span class="c1"># with different shift</span>
-<span class="n">caesar</span> <span class="o">=</span> <span class="no">Caesar</span><span class="o">.</span><span class="n">new</span> <span class="mi">8</span>
+<span class="n">caesar</span> <span class="o">=</span> <span class="no">CaesarCipher</span><span class="o">::</span><span class="no">Caesar</span><span class="o">.</span><span class="n">new</span> <span class="mi">8</span>
 <span class="n">caesar</span><span class="o">.</span><span class="n">cipher</span>   <span class="s2">"hello"</span> <span class="c1"># returns "pmttw"</span>
 <span class="n">caesar</span><span class="o">.</span><span class="n">decipher</span> <span class="s2">"ewztl"</span> <span class="c1"># returns "world"</span>
 </pre></div>
