@@ -1,18 +1,19 @@
-# bowling_spec.rb
-require 'caesar_cipher'
+describe CaesarCipher do
+    it 'should have a version number' do
+        CaesarCipher::VERSION.should_not be_nil
+    end
 
-describe Caesar do
     context "should initialize" do
         it "with a default shift value" do
-            caesar = Caesar.new
+            caesar = CaesarCipher::Caesar.new
             caesar.shift.should eq(4)
         end
         it "with a specific shift value" do
-            caesar = Caesar.new 6
+            caesar = CaesarCipher::Caesar.new 6
             caesar.shift.should eq(6)
-            caesar = Caesar.new 8
+            caesar = CaesarCipher::Caesar.new 8
             caesar.shift.should eq(8)
-            caesar = Caesar.new 10
+            caesar = CaesarCipher::Caesar.new 10
             caesar.shift.should eq(10)
         end
     end
@@ -79,9 +80,9 @@ end
 
 def test_cipher(text, text_chipered, shift=nil)
     if shift.nil?
-        caesar = Caesar.new 
+        caesar = CaesarCipher::Caesar.new 
     else
-        caesar = Caesar.new shift
+        caesar = CaesarCipher::Caesar.new shift
     end
     output = caesar.cipher text
     output.should eq(text_chipered)
@@ -90,26 +91,10 @@ end
 
 def test_decipher(text, text_chipered, shift=nil)
     if shift.nil?
-        caesar = Caesar.new 
+        caesar = CaesarCipher::Caesar.new 
     else
-        caesar = Caesar.new shift
+        caesar = CaesarCipher::Caesar.new shift
     end
     output = caesar.decipher text_chipered
     output.should eq(text)
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

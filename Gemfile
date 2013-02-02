@@ -1,6 +1,4 @@
-source "http://rubygems.org"
+source 'https://rubygems.org'
 
-
-gem "guard-rspec"
-gem 'growl'
-gem 'rb-fsevent', '~> 0.9.1'
+# Specify your gem's dependencies in caesar_cipher.gemspec
+gemspec

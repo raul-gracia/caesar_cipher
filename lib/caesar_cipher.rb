@@ -1,58 +1,44 @@
-class Caesar
-	
-	def initialize(shift=4)
-		@shift = shift
-		@alphabet = %w{a b c d e f g h i j k l m n o p q r s t u v w x y z}
-	end
+module CaesarCipher
+    VERSION = "0.0.1"
 
-	def cipher(text, shift=@shift)
-		output = ""
-		text.split("").each do |c|
-			output << cipher_char(c, shift)
-		end
-		output
-	end
+    class Caesar
 
-	def decipher(text,shift=@shift)
-		output = ""
-		text.split("").each do |c|
-			output << decipher_char(c, shift)
-		end
-		output
-	end
+        attr_reader :shift
+
+        def initialize(shift=4)
+            @shift = shift
+            @alphabet = %w{a b c d e f g h i j k l m n o p q r s t u v w x y z}
+        end
+
+        def cipher(text, shift=@shift)
+            caesar_algorithm :cipher, text, shift
+        end
+
+        def decipher(text, shift=@shift)
+            caesar_algorithm :decipher, text, shift
+        end
 
 
-	def cipher_char(c, shift)
-		ciphed_char = c
-		if @alphabet.include? c.downcase 
-			pos = @alphabet.index(c.downcase)
-			newpos = pos+shift
-			newpos = newpos - @alphabet.size if newpos >= @alphabet.size
-			ciphed_char = correct_case c, @alphabet[newpos]
-		end		
-		ciphed_char
-	end
+        def correct_case(old_char, new_char)
+            if old_char.downcase == old_char
+                new_char.downcase 
+            else
+                new_char.upcase
+            end
+        end
 
-	def decipher_char(c, shift)
-		decipher_char = c
-		if @alphabet.include? c.downcase
-			pos = @alphabet.index(c.downcase)
-			newpos = pos-shift
-			decipher_char = correct_case c, @alphabet[newpos]
-		end
-		decipher_char
-	end 
+        def caesar_algorithm(method, text, shift)
+            shift = method == :cipher ? shift : -shift
+            text.split("").map do |c|
+                if @alphabet.include? c.downcase
+                    pos = @alphabet.index(c.downcase)                    
+                    correct_case c, @alphabet.rotate(shift)[pos]
+                else
+                    c
+                end
+            end.join
+        end
+    
+    end
 
-
-	def correct_case(old_char, new_char)
-		if old_char.downcase == old_char
-			new_char.downcase 
-		else
-			new_char.upcase
-		end
-	end
-
-	def shift
-		@shift
-	end
 end
