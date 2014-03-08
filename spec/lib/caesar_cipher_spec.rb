@@ -19,9 +19,9 @@ describe CaesarCipher do
     end
 
     context "should cipher" do
-        context "without a shift value" do            
+        context "without a shift value" do
             context "a text" do
-                it "with alphabet characters" do                        
+                it "with alphabet characters" do
                     test_cipher "my name is raul", "qc reqi mw veyp"
                     test_cipher  "THIS IS A TEST", "XLMW MW E XIWX"
                     test_cipher "caesar cipher", "geiwev gmtliv"
@@ -34,7 +34,7 @@ describe CaesarCipher do
         end
         context "with a different shift value" do
             context "a text" do
-                it "with alphabet characters" do                        
+                it "with alphabet characters" do
                     test_cipher "my name is raul", "oa pcog ku tcwn", 2
                     test_cipher  "THIS IS A TEST", "YMNX NX F YJXY", 5
                     test_cipher "caesar cipher", "kimaiz kqxpmz", 8
@@ -48,9 +48,9 @@ describe CaesarCipher do
     end
 
     context "should decipher" do
-        context "without a shift value" do            
+        context "without a shift value" do
             context "a text" do
-                it "with alphabet characters" do                        
+                it "with alphabet characters" do
                     test_decipher "my name is raul", "qc reqi mw veyp"
                     test_decipher  "THIS IS A TEST", "XLMW MW E XIWX"
                     test_decipher "caesar cipher", "geiwev gmtliv"
@@ -63,7 +63,7 @@ describe CaesarCipher do
         end
         context "with a different shift value" do
             context "a text" do
-                it "with alphabet characters" do                        
+                it "with alphabet characters" do
                     test_decipher "my name is raul", "oa pcog ku tcwn", 2
                     test_decipher  "THIS IS A TEST", "YMNX NX F YJXY", 5
                     test_decipher "caesar cipher", "kimaiz kqxpmz", 8

@@ -1,4 +1,6 @@
 module CaesarCipher
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'caesar_cipher'
     VERSION = "0.0.2"
 
     class Caesar
@@ -31,14 +33,12 @@ module CaesarCipher
             shift = method == :cipher ? shift : -shift
             text.split("").map do |c|
                 if @alphabet.include? c.downcase
-                    pos = @alphabet.index(c.downcase)                    
+                    pos = @alphabet.index(c.downcase)
                     correct_case c, @alphabet.rotate(shift)[pos]
                 else
                     c
                 end
             end.join
         end
-    
     end
-
 end
